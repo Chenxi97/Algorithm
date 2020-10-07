@@ -4,9 +4,10 @@
 
 ## 剑指offer
 
-* [Untitled](jian-zhi-offer/untitled.md)
+* [剑指offer 1-40](offer/offer1.md)
+* [剑指offer 41-80](offer/offer2.md)
 
 ## leetcode
 
-* [Untitled](leetcode/untitled.md)
+* [leetcode 1-20](leetcode/leetcode1.md)
 

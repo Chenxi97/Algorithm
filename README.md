@@ -1,4 +1,3 @@
-# Introduction
-
-leetcode / 剑指offer题解
+# Algorithm
+LeetCode / 剑指offer题解
 
