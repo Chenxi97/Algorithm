@@ -1,14 +1,14 @@
-# 剑指offer(1-40)
+# 剑指offer 1-40
 
 ## 1. 找出数组中重复的数字
 
 首先遍历数组，如果有不在0~1中的数字，返回-1。
 
-然后遍历数组，如果nums[i]不等于i，则将nums[i]与nums[nums[i]]交换，将其放到正确的位置。如果nums[nums[i]]已经等于nums[i]，说明该数字重复了，返回nums[i]。
+然后遍历数组，如果nums\[i\]不等于i，则将nums\[i\]与nums\[nums\[i\]\]交换，将其放到正确的位置。如果nums\[nums\[i\]\]已经等于nums\[i\]，说明该数字重复了，返回nums\[i\]。
 
-时间复杂度：每个数字最多经过两次交换，需要O(n)时间
+时间复杂度：每个数字最多经过两次交换，需要O\(n\)时间
 
-空间复杂度：O(1)
+空间复杂度：O\(1\)
 
 ```java
 class Solution {
@@ -36,9 +36,9 @@ class Solution {
 
 如果把数组看作一个链表，数组的值作为下一个结点的位置，那么数组中重复的值则意味着有多个结点指向同一个结点，也就是出现了环。我们可以通过链表判环的方法找到环的入口，也就找到了重复的值。
 
-时间复杂度：O(n)
+时间复杂度：O\(n\)
 
-空间复杂度：O(1)
+空间复杂度：O\(1\)
 
 ```java
 class Solution {
@@ -64,7 +64,7 @@ class Solution {
 
 如果当前的值小于target，说明这一行的值都小于target，row++；如果当前值大于target，这一列的值都大于target，col--。
 
-时间复杂度：每步会排除一行或一列，如果行为n列为m的话，时间复杂度为O(n+m)。
+时间复杂度：每步会排除一行或一列，如果行为n列为m的话，时间复杂度为O\(n+m\)。
 
 ```java
 class Solution {
@@ -93,7 +93,7 @@ class Solution {
 2. 将字符串设置为新的长度。
 3. 使用两个指针i,j指向原字符串的末尾和新字符串的末尾，从后往前进行替换。
 
-时间复杂度：O(n)
+时间复杂度：O\(n\)
 
 ```java
 class Solution {
@@ -120,13 +120,13 @@ class Solution {
 
 ## 5. 从尾到头打印链表
 
-##### a.（遍历链表）O(n)
+### a.（遍历链表）O\(n\)
 
 逆置链表后重新遍历输出。
 
-时间复杂度：O(n)
+时间复杂度：O\(n\)
 
-空间复杂度：O(1)
+空间复杂度：O\(1\)
 
 ```java
 class Solution {
@@ -153,11 +153,11 @@ class Solution {
 }
 ```
 
-##### b. (使用头插法)O(n)
+### b. \(使用头插法\)O\(n\)
 
-时间复杂度：O(n)
+时间复杂度：O\(n\)
 
-空间复杂度：O(n)
+空间复杂度：O\(n\)
 
 ```java
 class Solution {
@@ -232,19 +232,19 @@ class Solution {
 
 ```java
 class MyQueue {
-    
+
     Stack<Integer> s1,s2;
     /** Initialize your data structure here. */
     public MyQueue() {
         s1=new Stack<Integer>();
         s2=new Stack<Integer>();
     }
-    
+
     /** Push element x to the back of queue. */
     public void push(int x) {
         s1.push(x);
     }
-    
+
     /** Removes the element from in front of queue and returns that element. */
     public int pop() {
         if(s2.isEmpty()){
@@ -254,7 +254,7 @@ class MyQueue {
         }
         return s2.pop();
     }
-    
+
     /** Get the front element. */
     public int peek() {
         if(s2.isEmpty()){
@@ -263,7 +263,7 @@ class MyQueue {
         }
         return s2.peek();
     }
-    
+
     /** Returns whether the queue is empty. */
     public boolean empty() {
         return s1.isEmpty()&&s2.isEmpty();
@@ -273,11 +273,11 @@ class MyQueue {
 
 ## 9. 斐波那契数列
 
-时间复杂度：O(n)
+时间复杂度：O\(n\)
 
-空间复杂度：O(1)
+空间复杂度：O\(1\)
 
-``` java
+```java
 class Solution {
     public int Fibonacci(int n) {
          int a=0,b=1;
@@ -294,11 +294,11 @@ class Solution {
 
 使用二分查找时，需要满足一个条件：有一种性质能够区分前半部分和后半部分。
 
-比如，当数组中没有重复数字时，数组的前半部分nums[i]>=nums[0]，而后半部分都小于nums[0]，这样我们可以通过二分查找找到第一个小于nums[0]的数字。
+比如，当数组中没有重复数字时，数组的前半部分nums\[i\]&gt;=nums\[0\]，而后半部分都小于nums\[0\]，这样我们可以通过二分查找找到第一个小于nums\[0\]的数字。
 
-但是当数组中有重复的数字时，由于后半部分中的数字也可能满足nums[i]==nums[0]，所以二分查找可能会失败。这时候应该对数组进行处理，删除数组末尾等于nums[0]的数字。
+但是当数组中有重复的数字时，由于后半部分中的数字也可能满足nums\[i\]==nums\[0\]，所以二分查找可能会失败。这时候应该对数组进行处理，删除数组末尾等于nums\[0\]的数字。
 
-时间复杂度：删除末位数字时最坏复杂度为O(n)，二分查找O(log n)，所以总的时间复杂度为O(n)。
+时间复杂度：删除末位数字时最坏复杂度为O\(n\)，二分查找O\(log n\)，所以总的时间复杂度为O\(n\)。
 
 ```java
 class Solution {
@@ -358,7 +358,7 @@ class Solution {
     {
         if(rows==0||cols==0) return 0;
         return dfs(threshold,rows,cols,0,0,new boolean[rows][cols]);
-        
+
     }
     private int dfs(int t,int rows,int cols,int i,int j,boolean[][] visited){
         if(i<0||i>=rows||j<0||j>=cols||visited[i][j]||getSum(i,j)>t) return 0;
@@ -391,7 +391,7 @@ ki=2或3时，不应该拆分。
 
 ki=4和5时，分解成2+2和2+3乘积最大。
 
-ki>5时，我们可以将其拆成3+(ki-3)或2+(ki-2)，得到的乘积3(ki-3)>2(ki-2)>ki，所以应该将其拆分，并且结果中有尽可能多的3。此时要考虑一个特例，当ki%3==1时，3\*1的乘积要小于2\*2，要进行特殊处理。
+ki&gt;5时，我们可以将其拆成3+\(ki-3\)或2+\(ki-2\)，得到的乘积3\(ki-3\)&gt;2\(ki-2\)&gt;ki，所以应该将其拆分，并且结果中有尽可能多的3。此时要考虑一个特例，当ki%3==1时，3\*1的乘积要小于2\*2，要进行特殊处理。
 
 ```java
 class Solution {
@@ -411,7 +411,7 @@ class Solution {
 
 ## 14. 二进制中1的个数
 
-每次做n&(n-1)操作，都会把n右边的1置为0。这样循环1的个数次之后，就可以得到结果。
+每次做n&\(n-1\)操作，都会把n右边的1置为0。这样循环1的个数次之后，就可以得到结果。
 
 ```java
 class Solution {
@@ -431,7 +431,7 @@ class Solution {
 
 采用乘方公式。
 
-时间复杂度：O(log n)
+时间复杂度：O\(log n\)
 
 ```java
 class Solution {
@@ -450,7 +450,7 @@ class Solution {
 }
 ```
 
-## 16. 在O(1)时间删除链表结点
+## 16. 在O\(1\)时间删除链表结点
 
 将当前节点的值改为下一个节点的值，然后删除下一个节点。
 
@@ -493,7 +493,7 @@ class Solution {
 
 主要难点在于对\*号的匹配。
 
-##### a. 递归解法：
+### a. 递归解法：
 
 ```java
 class Solution {
@@ -521,7 +521,7 @@ class Solution {
 }
 ```
 
-##### b. 非递归解法
+### b. 非递归解法
 
 ```java
 class Solution {
@@ -554,7 +554,7 @@ class Solution {
 
 ## 19. 表示数值的字符串
 
-一个有效数值的格式应该是(1. 有符号数)(.)(2. 无符号数 )(e或E)(3. 有符号数)。
+一个有效数值的格式应该是\(1. 有符号数\)\(.\)\(2. 无符号数 \)\(e或E\)\(3. 有符号数\)。
 
 '.'两边的数有一个就行，'e或E'两边的数必须同时存在。
 
@@ -592,9 +592,9 @@ class Solution {
 
 ## 20. 调整数组顺序使奇数位于偶数前面
 
-#####  a. 无特殊要求--双指针O(n)
+### a. 无特殊要求--双指针O\(n\)
 
-指针i遍历数组，指针j指向i后的第一个奇数，当array[i]为偶数时，交换array[i]和array[j]。
+指针i遍历数组，指针j指向i后的第一个奇数，当array\[i\]为偶数时，交换array\[i\]和array\[j\]。
 
 ```java
 class Solution {
@@ -615,9 +615,9 @@ class Solution {
 }
 ```
 
-##### b. 交换后奇数与奇数、偶数与偶数之间顺序不变--插入法O(n^2)
+### b. 交换后奇数与奇数、偶数与偶数之间顺序不变--插入法O\(n^2\)
 
-过程类似于插入排序，最坏情况下的时间复杂度O(n^2)。
+过程类似于插入排序，最坏情况下的时间复杂度O\(n^2\)。
 
 ```java
 class Solution {
@@ -817,21 +817,21 @@ class MinStack {
         s2=new Stack<Integer>();
         s2.push(Integer.MAX_VALUE);//避免s2.push()时的判断栈空
     }
-    
+
     public void push(int x) {
         s1.push(x);
         s2.push(Math.min(s2.peek(),x));
     }
-    
+
     public void pop() {
         s1.pop();
         s2.pop();
     }
-    
+
     public int top() {
         return s1.peek();
     }
-    
+
     public int getMin() {
         return s2.peek();
     }
@@ -1121,3 +1121,4 @@ class Solution {
     }
 }
 ```
+
