@@ -666,25 +666,23 @@ class Solution {
 
 ## 69. 扑克牌的顺子
 
-```java
+```c++
 class Solution {
-    public boolean isContinuous(int [] numbers) {
-        if(numbers.length<5) return false;
-        int[] mp=new int[14];
-        int min=14;
-        for(int i:numbers){
-            if(i>0) min=Math.min(min,i);
-            mp[i]++;
-        }
-        for(int i=min;i<min+5;i++){
-            if(mp[i]==0){
-                if(mp[0]>0) mp[0]--;
-                else return false;
+public:
+    bool isStraight(vector<int>& nums) {
+        vector<int> mp(14);
+        int minval=14,maxval=0;
+        for(auto num:nums){
+            if(num>0){
+                if(mp[num]>0) return false;
+                mp[num]++;
+                minval=min(minval,num);
+                maxval=max(maxval,num);
             }
         }
-        return true;
+        return maxval-minval<5;
     }
-}
+};
 ```
 
 ## 70. 圆圈中最后剩下的数字
